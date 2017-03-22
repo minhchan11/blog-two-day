@@ -1,1 +1,12 @@
-{{yield}}
+<div class="post-tile">
+  <div class="post-tile-image">
+    <img src="{{post.mainpic}}" />
+  </div>
+  <div class="post-tile-title">
+    <h2>{{post.title}}</h2>
+  </div>
+  <div class="post-tile-content">
+    {{{post.content}}}
+  </div>
+  {{post-info model=post}}
+</div>

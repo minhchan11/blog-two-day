@@ -1,0 +1,25 @@
+body {
+  font-size: 16px;
+}
+/*NAVBAR*/
+.navbar {
+  border: 2px solid red;
+}
+
+.navbar ul {
+  display: inline;
+}
+
+/*POST-TILES*/
+.post-tile {
+  margin-bottom: 40px;
+}
+.post-tile-title {
+  text-transform: lowercase;
+}
+
+.post-tile-image img{
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
