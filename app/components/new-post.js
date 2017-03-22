@@ -7,7 +7,8 @@ export default Ember.Component.extend({
       this.set('addNewPost', true);
     },
 
-    savePost() {
+    savePost(event) {
+      debugger;
       var params = {
         title: this.get('title'),
         category: this.get('category'),

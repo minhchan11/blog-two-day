@@ -1,6 +1,4 @@
-<button {{action 'postFormShow'}} class="btn btn-link btn-lg" type="submit">New Post</button>
-{{#if addNewPost}}
-{{#bs-modal as |modal|}}
+{{#bs-modal open=newPost onSubmit=(action "savePost") as |modal|}}
    {{#modal.body}}
    <h2>New Post</h2>
    <div class="new-post-form">
@@ -25,10 +23,7 @@
          <label for="date">Date:</label>
          {{input value=date id="date "}}
        </div>
-       {{#bs-button type="default" onClick=(action "savePost")}}
-         Submit
-       {{/bs-button}}
-       <!-- <button class="btn" {{action 'savePost'}}>Submit</button> -->
+       {{#bs-button type="success" onClick=(action modal.submit)}}Save{{/bs-button}}
      </form>
    </div>
    {{/modal.body}}
@@ -36,8 +31,4 @@
      {{#bs-button onClick=(action modal.close) type="danger"}}Cancel{{/bs-button}}
    {{/modal.footer}}
  {{/bs-modal}}
-
-<!-- {{#bs-button type="default" onClick=(action "savePost")}}
-  Submit
-{{/bs-button}} -->
-{{/if}}
+ {{#bs-button onClick=(action "postFormShow")}}NewPost{{/bs-button}}
