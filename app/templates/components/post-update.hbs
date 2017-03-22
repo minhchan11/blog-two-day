@@ -1,0 +1,24 @@
+<form>
+  <h4>Edit this entry</h4>
+  <div class="form-group">
+    <label for="title">Update Title:</label>
+    {{input value=title}}
+  </div>
+  <div class="form-group">
+    <label for="mainpic">Update Image:</label>
+    {{input value=mainpic}}
+  </div>
+  <div class="form-group">
+    <label for="content">Update Content:</label>
+    {{input value=content}}
+  </div>
+  <div class="form-group">
+    <label for="category">Update Category:</label>
+    {{input value=category}}
+  </div>
+  <div class="form-group">
+    <label for="title">Update Date:</label>
+    {{input value=date}}
+  </div>
+  <button {{action 'update' model}}>Update Entry</button>
+</form>

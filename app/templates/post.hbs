@@ -1,1 +1,25 @@
-{{outlet}}
+
+{{#bs-tab as |tab|}}
+    {{#tab.pane title="User"}}
+    <h2>{{model.title}}</h2>
+    <img src={{model.mainpic}}>
+    {{{model.content}}}
+    <div class="well">
+      <p>
+      {{post-info model=model}}
+      </p>
+    </div>
+    {{/tab.pane}}
+    {{#tab.pane title="Admin"}}
+    <h2>{{model.title}}</h2>
+    <img src={{model.mainpic}}>
+    {{{model.content}}}
+    <div class="well">
+      <p>
+      {{post-info model=model}}
+      </p>
+    </div>
+    {{post-update model=model update='update'}}
+    <button {{action 'delete' model}}>Delete</button>
+    {{/tab.pane}}
+{{/bs-tab}}
