@@ -14,7 +14,7 @@
     <hr>
     <ul>
       {{#each model.comments as |comment|}}
-        {{comment-tile model=comment}}
+        {{comment-tile model=comment deleteComment="deleteComment"}}
       {{/each}}
     </ul>
     {{/tab.pane}}

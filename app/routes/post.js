@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return this.store.findRecord('post', params.post_id);
   },
   actions:{
-    
+
     update(post, params){
       Object.keys(params).forEach(function(key){
         if(params[key] !== undefined) {
@@ -29,6 +29,10 @@ export default Ember.Route.extend({
         return post.save();
       });
       this.transitionTo('post', post);
+    },
+    deleteComment(comment){
+      comment.destroyRecord();
+      this.transitionTo('index')
     }
   }
 });
