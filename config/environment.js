@@ -18,10 +18,11 @@ module.exports = function(environment) {
     },
 
     firebase: {
-      apiKey: "AIzaSyCwcDZpyw4vgCRQ9kYGywnoN63jgWDrqMs",
-      authDomain: "minhallie-blog.firebaseapp.com",
-      databaseURL: "https://minhallie-blog.firebaseio.com",
-      storageBucket: "minhallie-blog.appspot.com",
+      apiKey: "AIzaSyAg5rTEF0kIiI68KWZjfjw8JHvUzRBaOaY",
+      authDomain: "fake-bustle.firebaseapp.com",
+       databaseURL: "https://fake-bustle.firebaseio.com",
+    storageBucket: "fake-bustle.appspot.com",
+    messagingSenderId: "375960377070"
     },
 
     APP: {
