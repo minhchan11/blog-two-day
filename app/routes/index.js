@@ -25,33 +25,15 @@ export default Ember.Route.extend({
       // var newCategory = this.store.findRecord('category', params.placeHolder);
       var newPost = this.store.createRecord('post', params);
 
-      var category = this.store.findRecord('category', 0)
-
-      var catObject;
-      var cats = [];
-      category.then(function(response)
-      {
-        catObject = category.get('data');
-
-        // console.log("CATOBJECT:" + catObject);
-        cats.push(catObject);
-        console.log("CATOBJECT");
-        console.log(catObject);
-        newPost.set('category', cats);
-        newPost.save();
-    });
-    console.log("CATS");
-    console.log(cats);
-    // var newCategory = response;
-    // var array = newPost.get('category');
-    // console.log(array);
-    // array.toArray();
-    // console.log(array);
-    // newPost.set('category', response);
-    // newPost.save();
-
       ///PLEASE LOOK ATHIS ALLIE//
       //SET TO ZERO TO JUST MAKE AN EXAMPLE//
+      this.store.findRecord('category', 0).then(function(response)
+      {
+        newPost.set('category', response);
+        newPost.save();
+    });
+
+
 
     this.transitionTo('index');
   },
