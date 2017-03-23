@@ -1,0 +1,56 @@
+@import "ember-bootstrap/bootstrap";
+
+@import url('https://fonts.googleapis.com/css?family=Chau+Philomene+One|Nunito:400,600,700i');
+$aqua: #009998;
+$nunito: 'Nunito', sans-serif;
+$chau: 'Chau Philomene One', sans-serif;
+
+body {
+  font-size: 16px;
+}
+/*HEADER*/
+.logo-container {
+  // width: 350px;
+  // height:;
+  // overflow: hidden;
+}
+
+// #logo:before{
+//   content: "";
+//   width: 10px;
+//   height: 200px;
+//   border: 5px solid white;
+// }
+
+#logo {
+  font-family: $chau;
+  color: $aqua;
+  font-size: 72px;
+  text-align: center;
+  display: inline;
+  margin: 10px;
+  margin-top: 80px;
+}
+
+/*NAVBAR*/
+.navbar {
+  border: 2px solid red;
+}
+
+.navbar ul {
+  display: inline;
+}
+
+/*POST-TILES*/
+.post-tile {
+  margin-bottom: 40px;
+}
+.post-tile-title {
+  text-transform: lowercase;
+}
+
+.post-tile-image img{
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}

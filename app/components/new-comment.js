@@ -10,6 +10,9 @@ export default Ember.Component.extend({
         post: this.get('post')
       };
       this.sendAction('saveComment', params);
+    },
+    updateText(editor) {
+      this.attrs.update(editor.root.innerHTML);
     }
   }
 });
