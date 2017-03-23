@@ -1,3 +1,10 @@
+{{new-category saveCategory="saveCategory"}}
 {{#each model.posts as |post|}}
   {{post-tile post=post}}
 {{/each}}
+
+<ul>
+  {{#each model.categories as |category|}}
+  <li>{{category.name}}</li>
+  {{/each}}
+</ul>
