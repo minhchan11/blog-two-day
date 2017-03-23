@@ -1,0 +1,17 @@
+<div class="new-comment-form">
+  <form>
+    <div class="form-group">
+      <label for="title">Comment Title</label>
+      {{input value=title id="title"}}
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      {{input value=author id="author"}}
+    </div>
+    <div class="form-group">
+      <label for="content">Comment</label>
+      {{textarea value=content id="content"}}
+    </div>
+    <button {{action 'saveComment'}} name="button">Submit</button>
+  </form>
+</div>

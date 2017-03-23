@@ -13,7 +13,7 @@ export default Ember.Component.extend({
       var categoryId = $("#category option:selected" ).val();
       var params = {
         title: this.get('title'),
-        category:categoryId,
+        placeHolder:categoryId,
         content: this.get('content'),
         mainpic: this.get('image'),
         date: this.get('date')

@@ -8,6 +8,15 @@
       {{post-info model=model}}
       </p>
     </div>
+    <hr>
+    <h4>Comments</h4>
+    {{new-comment saveComment="saveComment" post=model}}
+    <hr>
+    <ul>
+      {{#each model.comments as |comment|}}
+        {{comment-tile model=comment}}
+      {{/each}}
+    </ul>
     {{/tab.pane}}
     {{#tab.pane title="Admin"}}
     <h2>{{model.title}}</h2>

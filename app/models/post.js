@@ -5,5 +5,6 @@ export default DS.Model.extend({
   mainpic: DS.attr(),
   category: DS.belongsTo('category', {async:true}),
   content: DS.attr(),
-  date:DS.attr()
+  date:DS.attr(),
+  comments: DS.hasMany('comment', {async: true})
 });

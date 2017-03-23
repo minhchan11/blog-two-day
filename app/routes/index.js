@@ -4,7 +4,8 @@ export default Ember.Route.extend({
   model(){
     return Ember.RSVP.hash({
       posts: this.store.findAll('post'),
-      categories: this.store.findAll('category')
+      categories: this.store.findAll('category'),
+      comments: this.store.findAll('comment')
     });
   },
   actions:{
@@ -24,17 +25,15 @@ export default Ember.Route.extend({
       // })
       // var newCategory = this.store.findRecord('category', params.placeHolder);
       var newPost = this.store.createRecord('post', params);
-
       ///PLEASE LOOK ATHIS ALLIE//
       //SET TO ZERO TO JUST MAKE AN EXAMPLE//
-      this.store.findRecord('category', 0).then(function(response)
+      this.store.findRecord('category', parseInt(params.placeHolder)).then(function(response)
       {
         newPost.set('category', response);
+        delete newPost.placeHolder;
         newPost.save();
     });
-
-
-
+    newPost.save();
     this.transitionTo('index');
   },
   saveCategory(params){
