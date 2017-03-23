@@ -1,43 +1,47 @@
 <button {{action 'postFormShow'}} class="btn btn-link btn-lg" type="submit">New Post</button>
 {{#if addNewPost}}
 {{#bs-modal as |modal|}}
-   {{#modal.body}}
-   <h2>New Post</h2>
-   <div class="new-post-form">
-     <form>
-       <div class="form-group">
-         <label for="Title">Title:</label>
-         {{input value=title id="title"}}
-       </div>
-       <div class="form-group">
-         <label for="category">Category:</label>
-         {{input value=category id="category"}}
-       </div>
-       <div class="form-group">
-         <label for="content">Content:</label>
-         {{textarea value=content id="content"}}
-       </div>
-       <div class="form-group">
-         <label for="image">Image:</label>
-         {{input value=image id="image"}}
-       </div>
-       <div class="form-group">
-         <label for="date">Date:</label>
-         {{input value=date id="date "}}
-       </div>
-       {{#bs-button type="default" onClick=(action "savePost")}}
-         Submit
-       {{/bs-button}}
-       <!-- <button class="btn" {{action 'savePost'}}>Submit</button> -->
-     </form>
-   </div>
-   {{/modal.body}}
-   {{#modal.footer as |footer|}}
-     {{#bs-button onClick=(action modal.close) type="danger"}}Cancel{{/bs-button}}
-   {{/modal.footer}}
- {{/bs-modal}}
+{{#modal.body}}
+<h2>New Post</h2>
+<div class="new-post-form">
+  <form>
+    <div class="form-group">
+      <label for="Title">Title:</label>
+      {{input value=title id="title"}}
+    </div>
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select onchange={{action "selectCategory" value="target.value"}} id="category">
+        {{#each model.categories as |categoryChoice|}}
+        <option value={{categoryChoice.id}} >{{categoryChoice.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      {{textarea value=content id="content"}}
+    </div>
+    <div class="form-group">
+      <label for="image">Image:</label>
+      {{input value=image id="image"}}
+    </div>
+    <div class="form-group">
+      <label for="date">Date:</label>
+      {{input value=date id="date "}}
+    </div>
+    {{#bs-button type="default" onClick=(action "savePost")}}
+    Submit
+    {{/bs-button}}
+    <!-- <button class="btn" {{action 'savePost'}}>Submit</button> -->
+  </form>
+</div>
+{{/modal.body}}
+{{#modal.footer as |footer|}}
+{{#bs-button onClick=(action modal.close) type="danger"}}Cancel{{/bs-button}}
+{{/modal.footer}}
+{{/bs-modal}}
 
 <!-- {{#bs-button type="default" onClick=(action "savePost")}}
-  Submit
+Submit
 {{/bs-button}} -->
 {{/if}}

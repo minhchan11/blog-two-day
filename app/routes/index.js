@@ -6,13 +6,29 @@ export default Ember.Route.extend({
       posts: this.store.findAll('post'),
       categories: this.store.findAll('category')
     });
-    console.log(model.categories);
   },
   actions:{
     savePost(params){
-      console.log("hey");
+      // console.log(typeof params);
+      // console.log("SAVEPOST PARAMS: " + params.category);
+      // debugger;
+      // var newCategory;
+      // this.store.findAll('category').then(function(categories){
+      //   categories.forEach(function(category){
+      //     console.log(category.get('name'));
+      //     if (category.id == params.category) {
+      //       newCategory = category.get('id');
+      //     }
+      //   })
+      //   console.log("NEW CATEGORY: " + newCategory);
+      // })
+      // var newCategory = this.store.findRecord('category', params.placeHolder);
       var newPost = this.store.createRecord('post', params);
-      newPost.save();
+      this.store.findRecord('category', 0).then(function(response)
+    {newPost.set('category', response);
+    newPost.save();
+    });
+
       this.transitionTo('index');
     },
     saveCategory(params){
