@@ -10,36 +10,27 @@ export default Ember.Route.extend({
   },
   actions:{
     savePost(params){
-      // console.log(typeof params);
-      // console.log("SAVEPOST PARAMS: " + params.category);
-      // debugger;
-      // var newCategory;
-      // this.store.findAll('category').then(function(categories){
-      //   categories.forEach(function(category){
-      //     console.log(category.get('name'));
-      //     if (category.id == params.category) {
-      //       newCategory = category.get('id');
-      //     }
-      //   })
-      //   console.log("NEW CATEGORY: " + newCategory);
-      // })
-      // var newCategory = this.store.findRecord('category', params.placeHolder);
       var newPost = this.store.createRecord('post', params);
-      ///PLEASE LOOK ATHIS ALLIE//
-      //SET TO ZERO TO JUST MAKE AN EXAMPLE//
       this.store.findRecord('category', parseInt(params.placeHolder)).then(function(response)
       {
         newPost.set('category', response);
-        delete newPost.placeHolder;
-        newPost.save();
+        response.get('posts').addObject(newPost);
+        return response.save();
+    }).then(function() {
+      delete newPost.placeHolder;
+      return newPost.save();
     });
-    newPost.save();
+    // newPost.save();
     this.transitionTo('index');
   },
   saveCategory(params){
     var newCategory = this.store.createRecord('category', params);
     newCategory.save();
     this.transitionTo('index');
+  },
+  clear(){
+    this.store.unloadAll('category'),
+    this.store.unloadAll('post')
   }
 }
 });
